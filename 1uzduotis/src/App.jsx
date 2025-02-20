@@ -7,13 +7,11 @@ export default function App() {
   const [count, setCount] = useState(0);
   const [cart, setCart] = useState([]);
 
-  // Add an item with a unique cartId (even for duplicates)
   const addToCart = (product) => {
     const uniqueItem = { ...product, cartId: Date.now() + Math.random() };
     setCart([...cart, uniqueItem]);
   };
 
-  // Remove one specific item using cartId
   const removeFromCart = (cartId) => {
     setCart(cart.filter((item) => item.cartId !== cartId));
   };
