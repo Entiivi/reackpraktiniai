@@ -1,5 +1,7 @@
-export default function GuessForm({ guess, setGuess, handleGuess }) {
-    const handleSubmit = (e) => {
+export default function GuessForm({ guess, setGuess, handleGuess })
+{
+    const handleSubmit = (e) =>
+    {
         e.preventDefault();
         handleGuess();
     };
