@@ -69,8 +69,6 @@ export default function App() {
       {/* Number Guessing Game */}
       <h2>Skaičių Spėjimo Žaidimas</h2>
       <GuessGame />
-
-      <p className="read-the-docs"></p>
     </>
   );
 }
