@@ -1,0 +1,119 @@
+/* src/pages/favorites.css */
+
+.favorites-container {
+    background-color: #EEEEEE; /* Light grey background */
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    padding-bottom: 2%;
+  }
+  
+  /* Header for Favorites page */
+  .favorites-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #7D0A0A;  /* Deep red */
+    color: #EAD196;           /* Warm accent */
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+  
+  .favorites-header h2 {
+    margin: 0;
+    font-size: 1.8rem;
+  }
+  
+  .atgal-button {
+    margin-right: 2%;
+    background-color: #BF3131; /* Bright red for button */
+    color: #EEEEEE; /* Light grey text on button */
+    border: none;
+    padding: 0.4rem 0.8rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .atgal-button:hover {
+    background-color: #7D0A0A;
+  }
+  
+  .no-favorites {
+    text-align: center;
+    color: #BF3131; /* Bright red for alerts */
+  }
+  
+  .favorites-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .favorite-card {
+    background-color: #EEEEEE;  /* Light grey background */
+    border: 2px solid #7D0A0A;    /* Deep red border */
+    border-radius: 8px;
+    flex: 0 0 calc(18% - 20px); /* 3 cards per row with gap */
+    padding: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .favorite-card img {
+    width: 100%;
+    border-radius: 4px;
+    margin-bottom: 10px;
+  }
+  
+  .favorite-card h3 {
+    color: #7D0A0A;
+    margin: 10px 0;
+  }
+  
+  .favorite-card p {
+    color: #BF3131;
+    font-size: 0.9rem;
+    flex-grow: 1;
+    margin-bottom: 10px;
+  }
+  
+  .card-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .details-link {
+    text-decoration: none;
+    color: #7D0A0A;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+  
+  .details-link:hover {
+    color: #BF3131;
+  }
+  
+  .remove-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    padding: 0;
+  }
+  
+  .remove-btn:hover {
+    transform: scale(1.1);
+  }
+  
+  .heart-icon {
+    display: block;
+  }
+  
+  

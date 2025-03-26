@@ -3,6 +3,7 @@ import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthContext';
 import RecipeList from '../components/recipelist';
+import '../css/dashboard.css';
 
 const Dashboard = () => {
   const { user, logout } = useContext(AuthContext);
@@ -14,24 +15,24 @@ const Dashboard = () => {
   };
 
   return (
-    <div style={{ padding: '20px' }}>
+    <div className="dashboard-container">
       {/* Header */}
-      <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+      <header className="dashboard-header">
         <h2>Dashboard</h2>
         <div>
-          <span>Welcome, {user?.username}!</span>
-          <button onClick={handleLogout} style={{ marginLeft: '20px' }}>Logout</button>
+          <span className="welcome">Welcome, {user?.username}!</span>
+          <button onClick={handleLogout}>Logout</button>
         </div>
       </header>
 
       {/* Navigation */}
-      <nav style={{ margin: '20px 0' }}>
-        <Link to="/favorites" style={{ marginRight: '20px' }}>Favorites</Link>
-        {/* You could add other links if needed */}
+      <nav className="dashboard-nav">
+        <Link to="/favorites">Favorites</Link>
+        {/* Add other links if needed */}
       </nav>
 
       {/* Recipe List Component */}
-      <div>
+      <div className="dashboard-content">
         <RecipeList />
       </div>
     </div>

@@ -2,6 +2,7 @@
 import React, { useState, useContext } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthContext';
+import '../css/login.css';
 
 const Login = () => {
   const { login } = useContext(AuthContext);
@@ -14,9 +15,7 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Dummy validation: Ensure both fields are not empty.
     if (credentials.username && credentials.password) {
-      // Here you would normally validate credentials via an API.
       login({ username: credentials.username });
       navigate('/dashboard');
     } else {
@@ -25,33 +24,35 @@ const Login = () => {
   };
 
   return (
-    <div style={{ textAlign: 'center', marginTop: '50px' }}>
-      <h2>Login</h2>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-      <form onSubmit={handleSubmit}>
-        <div style={{ margin: '10px' }}>
-          <label>Username: </label>
-          <input
-            type="text"
-            name="username"
-            value={credentials.username}
-            onChange={handleChange}
-          />
-        </div>
-        <div style={{ margin: '10px' }}>
-          <label>Password: </label>
-          <input
-            type="password"
-            name="password"
-            value={credentials.password}
-            onChange={handleChange}
-          />
-        </div>
-        <button type="submit">Login</button>
-      </form>
-      <p>
-        Don't have an account? <Link to="/register">Register here</Link>.
-      </p>
+    <div className="login-container">
+      <div className="login-card">
+        <h2>Login</h2>
+        {error && <p className="error-message">{error}</p>}
+        <form onSubmit={handleSubmit}>
+          <div>
+            <label>Username:</label>
+            <input
+              type="text"
+              name="username"
+              value={credentials.username}
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <label>Password:</label>
+            <input
+              type="password"
+              name="password"
+              value={credentials.password}
+              onChange={handleChange}
+            />
+          </div>
+          <button type="submit">Login</button>
+        </form>
+        <p>
+          Don't have an account? <Link to="/register">Register here</Link>.
+        </p>
+      </div>
     </div>
   );
 };

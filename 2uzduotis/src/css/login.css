@@ -1,0 +1,99 @@
+/* src/css/login.css */
+
+/* Reset and base styles */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    font-family: 'Arial', sans-serif;
+    background-color: #EEEEEE; /* Light grey background */
+    color: #7D0A0A;  /* Deep red text */
+  }
+  
+  /* Container for the login page */
+  .login-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+  }
+  
+  /* Card for the login form */
+  .login-card {
+    background-color: #FFFFFF;
+    border: 2px solid #7D0A0A;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    padding: 30px 40px;
+    width: 90%;
+    max-width: 400px;
+  }
+  
+  /* Header */
+  .login-card h2 {
+    color: #7D0A0A;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  /* Form elements */
+  .login-card label {
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 5px;
+  }
+  
+  .login-card input[type="text"],
+  .login-card input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #7D0A0A;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    font-size: 1rem;
+  }
+  
+  /* Login Button */
+  .login-card button {
+    width: 100%;
+    padding: 10px;
+    background-color: #BF3131; /* Bright red */
+    color: #EEEEEE; /* Light grey text */
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .login-card button:hover {
+    background-color: #7D0A0A;
+  }
+  
+  /* Error message styling */
+  .login-card .error-message {
+    color: #BF3131;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  
+  /* Link styling */
+  .login-card p {
+    text-align: center;
+    font-size: 0.9rem;
+  }
+  
+  .login-card a {
+    color: #7D0A0A;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+  
+  .login-card a:hover {
+    color: #BF3131;
+  }
+  

@@ -1,0 +1,73 @@
+/* src/pages/dashboard.css */
+
+/* Container for the entire dashboard */
+.dashboard-container {
+
+    font-family: Arial, sans-serif; /* Adjust font as needed */
+    background-color: #EEEEEE; /* Light grey background */
+    min-height: 100vh;
+  }
+  
+  /* Header at the top of the dashboard */
+  .dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #7D0A0A; /* Deep red header background */
+    color: #EAD196; /* Warm accent for text */
+    padding: 10px 20px;
+    margin-bottom: 20px;
+  }
+  
+  .dashboard-header h2 {
+    margin: 0;
+    font-size: 1.8rem;
+  }
+  
+  .dashboard-header .welcome {
+    margin-right: 10px;
+    font-weight: 500;
+  }
+  
+  /* Logout button styling */
+  .dashboard-header button {
+    margin-left: 10px;
+    background-color: #BF3131; /* Bright red for button */
+    color: #EEEEEE; /* Light grey text on button */
+    border: none;
+    padding: 0.4rem 0.8rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .dashboard-header button:hover {
+    background-color: #7D0A0A; /* Change to deep red on hover */
+  }
+  
+  /* Navigation links below the header */
+  .dashboard-nav {
+    margin: 20px 20px;
+  }
+  
+  .dashboard-nav a {
+    margin-right: 20px;
+    text-decoration: none;
+    color: #7D0A0A; /* Use deep red for links */
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  
+  .dashboard-nav a:hover {
+    color: #BF3131; /* Change to bright red on hover */
+  }
+  
+  /* Content area where your RecipeList is displayed */
+  .dashboard-content {
+    /* Additional layout or spacing if needed */
+    background-color: #FFFFFF; /* White content area for contrast */
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  

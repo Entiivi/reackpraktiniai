@@ -1,12 +1,12 @@
 // src/pages/Favorites.js
 import React, { useState, useEffect } from 'react';
-import RecipeCard from '../components/recipecard';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import '../css/favorites.css';
 
 const Favorites = () => {
   const [favorites, setFavorites] = useState([]);
+  const navigate = useNavigate();
 
-  // Fetch favorites from json-server
   const fetchFavorites = () => {
     fetch('http://localhost:3001/favorites')
       .then((res) => res.json())
@@ -18,37 +18,71 @@ const Favorites = () => {
     fetchFavorites();
   }, []);
 
-  // Function to remove a recipe from favorites
   const removeFavorite = (id) => {
+    console.log('Removing favorite with id:', id);
     fetch(`http://localhost:3001/favorites/${id}`, {
-      method: 'DELETE'
+      method: 'DELETE',
     })
       .then((res) => {
         if (!res.ok) {
-          throw new Error('Failed to remove favorite');
+          throw new Error(`Failed to remove favorite, status: ${res.status}`);
         }
-        return res.json();
+        // Some DELETE requests return an empty response body. Use res.text() instead.
+        return res.text();
       })
-      .then(() => {
-        fetchFavorites(); // refresh favorites list
+      .then((text) => {
+        fetchFavorites(); // Refresh favorites after deletion
       })
-      .catch((err) => console.error(err));
+      .catch((err) => {
+        console.error(err);
+        alert('Error removing favorite');
+      });
+  };
+  
+  const handleatgal = () => {
+    navigate('/dashboard');
   };
 
   return (
-    <div style={{ padding: '20px' }}>
-      <h2>Mano Mėgstamiausi Receptai</h2>
+    <div className="favorites-container">
+      {/* Header */}
+      <header className="favorites-header">
+        <h2>Favorites</h2>
+        <button className="atgal-button" onClick={handleatgal}>Atgal i dashboard</button>
+      </header>
+
       {favorites.length === 0 ? (
-        <p>Nėra pridėtų receptų.</p>
+        <p className="no-favorites">Nėra pridėtų receptų.</p>
       ) : (
-        favorites.map((recipe) => (
-          <div key={recipe.id} style={{ marginBottom: '20px' }}>
-            <RecipeCard recipe={recipe} />
-            <button onClick={() => removeFavorite(recipe.id)}>Pašalinti</button>
-          </div>
-        ))
+        <div className="favorites-grid">
+          {favorites.map((recipe) => (
+            <div key={recipe.id} className="favorite-card">
+              {recipe.image && <img src={recipe.image} alt={recipe.name} />}
+              <h3>{recipe.name}</h3>
+              <p>
+                {recipe.instructions
+                  ? recipe.instructions.join(' ').substring(0, 100) + '...'
+                  : 'No description available'}
+              </p>
+              <div className="card-actions">
+                <Link to={`/recipe/${recipe.id}`} className="details-link">
+                  Skaityti daugiau
+                </Link>
+                <button className="remove-btn" onClick={() => removeFavorite(recipe.id)}>
+                  <svg className="heart-icon" viewBox="0 0 24 24" width="24" height="24">
+                    <path
+                      fill="#7D0A0A"
+                      d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 
+                        2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 
+                        3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
       )}
-      <Link to="/dashboard">Atgal į Dashboard</Link>
     </div>
   );
 };
