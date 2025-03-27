@@ -9,6 +9,7 @@ import Dashboard from './pages/dashboard';
 import RecipeDetail from './pages/recipedetail';
 import Favorites from './pages/favorites';
 import ProtectedRoute from './components/ProtectedRoute';
+import UserSearch from './pages/usersearch';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/recipe/:id" element={<RecipeDetail />} />
           <Route path="/favorites" element={<Favorites />} />
+          <Route path="/usersearch" element={<UserSearch />} />
           <Route
             path="/dashboard"
             element={

@@ -1,0 +1,68 @@
+.user-search-page {
+    width: 1100px;
+    margin: 20px auto;
+    background-color: #FFFFFF;
+    padding: 20px;
+    border: 2px solid #7D0A0A;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+  /* Page title styling */
+  .page-title {
+    text-align: center;
+    color: #7D0A0A;
+    margin-bottom: 20px;
+  }
+  
+  /* Loading message styling */
+  .loading {
+    text-align: center;
+    color: #7D0A0A;
+    font-size: 1.2rem;
+    margin-top: 50px;
+  }
+  
+  /* Pagination container */
+  .pagination-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  /* Pagination buttons */
+  .pagination-button {
+    background-color: #BF3131;
+    color: #EEEEEE;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .pagination-button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+  }
+  
+  /* Back link styling */
+  .back-link-container {
+    text-align: center;
+    margin-top: 20px;
+    margin-right: 34%;
+  }
+  
+  .back-link {
+    text-decoration: none;
+    color: #7D0A0A;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    text-align: center;
+  }
+  
+  .back-link:hover {
+    color: #BF3131;
+  }
+  

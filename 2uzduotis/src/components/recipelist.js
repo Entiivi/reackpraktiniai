@@ -1,4 +1,3 @@
-// src/components/RecipeList.js
 import React, { useState, useEffect } from 'react';
 import RecipeCard from './recipecard';
 import '../css/recipelist.css';
@@ -12,7 +11,6 @@ const RecipeList = () => {
     fetch('https://dummyjson.com/recipes')
       .then((res) => res.json())
       .then((data) => {
-        // If the API returns an array directly, otherwise adjust accordingly:
         if (Array.isArray(data)) {
           setRecipes(data);
         } else if (data && data.recipes) {

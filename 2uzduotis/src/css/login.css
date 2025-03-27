@@ -1,6 +1,3 @@
-/* src/css/login.css */
-
-/* Reset and base styles */
 html, body {
     margin: 0;
     padding: 0;
@@ -60,8 +57,8 @@ html, body {
   .login-card button {
     width: 100%;
     padding: 10px;
-    background-color: #BF3131; /* Bright red */
-    color: #EEEEEE; /* Light grey text */
+    background-color: #BF3131;
+    color: #EEEEEE;
     border: none;
     border-radius: 4px;
     font-size: 1rem;

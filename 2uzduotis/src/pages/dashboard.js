@@ -28,6 +28,7 @@ const Dashboard = () => {
       {/* Navigation */}
       <nav className="dashboard-nav">
         <Link to="/favorites">Favorites</Link>
+        <Link to="/usersearch">3 uzduotis</Link>
         {/* Add other links if needed */}
       </nav>
 

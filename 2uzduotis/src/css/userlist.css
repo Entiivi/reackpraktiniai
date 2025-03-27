@@ -1,0 +1,24 @@
+.user-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;  
+    gap: 20px;        
+    justify-content: center; 
+    overflow: hidden;   
+  }
+  
+  .user-card {
+    width: 20%;    
+    height: 20%;   
+    background-color: #EEEEEE;
+    border: 2px solid #7D0A0A;
+    border-radius: 4px;
+    padding: 15px;
+    color: #7D0A0A;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
