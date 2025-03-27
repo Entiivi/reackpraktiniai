@@ -1,36 +1,43 @@
 // src/pages/Favorites.js
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext, useCallback } from 'react';
+import { AuthContext } from '../contexts/AuthContext';
 import { Link, useNavigate } from 'react-router-dom';
 import '../css/favorites.css';
 
 const Favorites = () => {
+  const { user } = useContext(AuthContext);
   const [favorites, setFavorites] = useState([]);
   const navigate = useNavigate();
 
-  const fetchFavorites = () => {
-    fetch('http://localhost:3001/favorites')
+  const fetchFavorites = useCallback(() => {
+    const url = `http://localhost:3001/favorites?userId=${user.id}&t=${Date.now()}`;
+    fetch(url, { cache: 'no-store' })
       .then((res) => res.json())
       .then((data) => setFavorites(data))
       .catch((err) => console.error('Error fetching favorites:', err));
-  };
+  }, [user.id]);
 
   useEffect(() => {
-    fetchFavorites();
-  }, []);
+    if (user) {
+      fetchFavorites();
+    }
+  }, [user, fetchFavorites]);
 
   const removeFavorite = (id) => {
-    console.log('Removing favorite with id:', id);
+    console.log('Attempting to remove favorite with id:', id);
+    // Use the id as-is (as a string) without converting to a number
     fetch(`http://localhost:3001/favorites/${id}`, {
       method: 'DELETE',
     })
       .then((res) => {
+        console.log('Delete response status:', res.status);
         if (!res.ok) {
           throw new Error(`Failed to remove favorite, status: ${res.status}`);
         }
-        // Some DELETE requests return an empty response body. Use res.text() instead.
         return res.text();
       })
       .then((text) => {
+        console.log('Delete response text:', text);
         fetchFavorites(); // Refresh favorites after deletion
       })
       .catch((err) => {
@@ -38,8 +45,8 @@ const Favorites = () => {
         alert('Error removing favorite');
       });
   };
-  
-  const handleatgal = () => {
+
+  const handleAtgal = () => {
     navigate('/dashboard');
   };
 
@@ -48,7 +55,7 @@ const Favorites = () => {
       {/* Header */}
       <header className="favorites-header">
         <h2>Favorites</h2>
-        <button className="atgal-button" onClick={handleatgal}>Atgal i dashboard</button>
+        <button className="atgal-button" onClick={handleAtgal}>Atgal i dashboard</button>
       </header>
 
       {favorites.length === 0 ? (
